@@ -1,0 +1,169 @@
+<div class="mat-elevation-z8  p-20 w-100" [ngStyle]="{ 'overflow-x': 'auto' }">
+  <mat-form-field appearance="standard">
+    <mat-label>Filter</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Ex. Mia"
+      #input
+    />
+  </mat-form-field>
+  <mat-table  [dataSource]="dataSource">
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <mat-header-cell *matHeaderCellDef>No.</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{ element.id }}</mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{ element.name }}</mat-cell>
+    </ng-container>
+
+    <!-- path Column -->
+    <!-- <ng-container matColumnDef="path">
+      <mat-header-cell *matHeaderCellDef>NDVI Value</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{ element.path.toPrecision(5) }}</mat-cell>
+    </ng-container> -->
+    <!-- Area Column -->
+    <ng-container matColumnDef="area">
+      <mat-header-cell *matHeaderCellDef [ngStyle]="{ 'margin-left' : '10px' }">Field Area</mat-header-cell>
+      <mat-cell *matCellDef="let element" matTooltip="Area is toFixed at 5 points"  [matTooltipPosition]="'left'" [ngStyle]="{ 'margin-left' : '10px' }">{{ element.area }} ha</mat-cell>
+    </ng-container>
+
+    <!-- UserID Column -->
+    <!-- <ng-container matColumnDef="userID">
+      <mat-header-cell *matHeaderCellDef>UserID</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{ element.userID }}</mat-cell>
+    </ng-container> -->
+    <!-- View -->
+    <ng-container matColumnDef="view">
+      <mat-header-cell *matHeaderCellDef>View</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-icon-button aria-label="Edit" color="primary">
+          <mat-icon (click)="viewMap(element.id)" matTooltip="See crop health"  [matTooltipPosition]="'left'">visibility</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <!--  prediction   -->
+    <ng-container matColumnDef="predict">
+      <mat-header-cell *matHeaderCellDef>Predict</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-icon-button aria-label="Edit" color="primary">
+          <mat-icon (click)="onClick(element)">data_usage</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+    <!-- Actions  -->
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-icon-button aria-label="Edit" color="primary">
+          <mat-icon (click)="deleteRow(element.id)">delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    <!-- Row shown when there is no matching data. -->
+    <mat-row class="mat-row" *matNoDataRow>
+      <mat-cell  colspan="4">
+        No data matching the filter "{{ input.value }}"
+      </mat-cell>
+    </mat-row>
+  </mat-table>
+  <mat-paginator
+    #paginator
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+    aria-label="Select page of periodic elements"
+  >
+  </mat-paginator>
+</div>
+<!-- <div class="prediction">
+  <button mat-raised-button color="primary" (click)="predictForm()">Predict Yield</button>
+</div> -->
+<!-- Prediction form  -->
+
+<!-- <div class="pred-form" *ngIf="showform">
+  <div class="row justify-content-center">
+    <h1>Prediction Form</h1>
+   <div class="col-md-6">
+    <form [formGroup]="exForm"  (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-md-4">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Field Area</mat-label>
+            <input
+              matInput
+              placeholder="Enter Filed Area"
+              formControlName="Area"
+            />
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Nitrogen</mat-label>
+            <input
+              matInput
+              placeholder="Enter Nitrogen"
+              formControlName="Nitrogen"
+            />
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Phosphorus</mat-label>
+            <input
+              matInput
+              placeholder="Enter Phosphorus"
+              formControlName="Phosphorus"
+            />
+          </mat-form-field>
+        </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>pH Value</mat-label>
+                <input
+                  matInput
+                  placeholder="Enter Ph"
+                  formControlName="pH"
+                />
+              </mat-form-field>
+          </div>
+          <div class="col-md-4">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>NDVI</mat-label>
+                <input
+                  matInput
+                  placeholder="Enter Ndvi Value"
+                  formControlName="NDVI"
+                />
+              </mat-form-field>
+          </div>
+          <div class="col-md-4">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Pottasium</mat-label>
+                <input
+                  matInput
+                  placeholder="Enter Pottasium"
+                  formControlName="Pottasium"
+                />
+              </mat-form-field>
+          </div>
+        </div>
+      <div class="col-md-12">
+        <button [ngStyle]="{ 'marginLeft':'20px' }" class="w-100" mat-raised-button type="submit" color="primary">Predict Now</button>
+      </div>
+    </form>
+    <div *ngIf="predictValue" class="mt-5">
+        <h4 class="mt-5 text-align-center">Production Tones : {{predictValue}}</h4>
+    </div>
+   </div>
+  </div>
+ 
+</div> -->

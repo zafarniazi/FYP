@@ -1,0 +1,195 @@
+<app-herosection></app-herosection>
+<!-- ***** Features Big Item Start ***** -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 features">
+        <div
+          class="features-item"
+          data-aos="fade-right"
+          data-aos-duration="2000"
+        >
+          <div class="features-icon">
+            <img src="../../../assets/images/features-icon-2.png" alt="" />
+            <h4>Health Analysis</h4>
+            <p>
+              Curabitur pulvinar vel odio sed sagittis. Nam maximus ex diam, nec
+              consectetur diam.
+            </p>
+            <a href="#testimonials" class="main-button"> Discover More </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+        <div
+          class="features-item"
+          data-aos="fade-left"
+          data-aos-duration="2000"
+        >
+          <div class="features-icon">
+            <img src="../../../assets/images/features-icon-3.png" alt="" />
+            <h4>Yield Estimation</h4>
+            <p>
+              Curabitur pulvinar vel odio sed sagittis. Nam maximus ex diam, nec
+              consectetur diam.
+            </p>
+            <a href="#testimonials" class="main-button"> More Detail </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--  farmer heaven intro start   -->
+<div class="h4 text-center who_f" data-aos="fade-top" data-aos-duration="1000">
+  Are you farmer ?
+</div>
+<section class="farmer-intro">
+  <div class="farmer-intro-content">
+    <p>
+      If you are a farmer looking for solutions to better manage your
+      <br />farm(s) and optimize your production levels,<br />Farmer Heaven is
+      here you for you.
+    </p>
+    <p>
+      If you are a farmer looking for solutions to better manage your
+      <br />farm(s) and optimize your production levels,<br />Farmer Heaven is
+      here you for you.
+    </p>
+    <p>
+      If you are a farmer looking for solutions to better manage your
+      <br />farm(s) and optimize your production levels,<br />Farmer Heaven is
+      here you for you.
+    </p>
+  </div>
+  <div class="farmer-vedio">
+    <iframe
+      [src]="safeURL"
+      width="520"
+      height="300"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+  </div>
+</section>
+
+<!--  farmer heaven intro  end  -->
+
+<!-- ***** Features Big Item End ***** -->
+
+<!-- ***** Testimonials Starts ***** -->
+<section class="section mb-5" id="testimonials">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+        <div class="center-heading">
+          <h2>Team Members <em>About Us</em></h2>
+          <p>Comsats University students</p>
+        </div>
+      </div>
+      <div class="col-lg-10 col-md-12 col-sm-12 mobile-bottom-fix-big">
+        <div class="owl-carousel owl-theme">
+          <div
+            class="item service-item"
+            data-aos="fade-left"
+            data-aos-duration="2000"
+          >
+            <div class="author">
+              <i
+                ><img
+                  src="../../../assets/images/asim aziz.png"
+                  alt="Author One"
+              /></i>
+            </div>
+            <div class="testimonial-content">
+              <h4>Asim Aziz</h4>
+              <p>
+                “A Software Architect and a Project Manager with several years of experience in the area of Spatial Analysis, GeoSpatial DataScience and Decision Support Systems.
+                Implemented solutions while Leading teams of Data and Technology experts of Backend / Frontend using frameworks of Python, .Net, GIS and PHP covering stacks i.e LAMP, MERN, MEAN and many more ranging from Data Massaging to Data Visualisations.
+                Helped several foreign and local clients in taking the right technology decisions. 
+                If you are stuck in anything don't hesitate to get in touch, I am always available to take on new and interesting challenges”
+              </p>
+              <span>Supervisior</span>
+            </div>
+          </div>
+          <div
+            class="item service-item"
+            data-aos="fade-left"
+            data-aos-duration="2000"
+          >
+            <div class="author">
+              <i
+                ><img
+                  src="../../../assets/images/resume-pic.jpeg"
+                  alt="Author One"
+              /></i>
+            </div>
+            <div class="testimonial-content">
+              <h4>Suleman Ahsan</h4>
+              <p>
+                “Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum
+                ipsam, iure unde recusandae veniam nobis illum quasi iste
+                reiciendis consequuntur adipisci, magni ipsa soluta aliquid id,
+                maiores optio nostrum labore?”
+              </p>
+              <span>frontend</span>
+            </div>
+          </div>
+          <div
+            class="item service-item"
+            data-aos="fade-right"
+            data-aos-duration="2000"
+          >
+            <div class="author">
+              <i
+                ><img
+                  src="../../../assets/images/zafar.jpg"
+                  alt="Second Author"
+              /></i>
+            </div>
+            <div class="testimonial-content">
+              <h4>Zafar khan</h4>
+              <p>
+                “Morbi non mi luctus felis molestie scelerisque. In ac libero
+                viverra, placerat est interdum, rhoncus leo.”
+              </p>
+              <span>Backend</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ***** Testimonials Ends ***** -->
+<section class="contatct-us" id="contact-us">
+  <div class="contact">
+    <div class="content">
+      <h3>GET IN TOCH</h3>
+    </div>
+    <div class="form-us">
+      <form [formGroup]="exform" (ngSubmit)="postData()">
+        <div class="mb-3" style="width: 52vw">
+          <label for="namefield" class="form-label">Your Name</label>
+          <input type="text" class="form-control" formControlName="name" id="namefield" placeholder="Enter Name...">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Email address</label>
+          <input type="email" class="form-control" formControlName="email" id="exampleFormControlInput1" placeholder="@gmail.com">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+          <textarea class="form-control" formControlName="message" id="exampleFormControlTextarea1" rows="10"></textarea>
+        </div>
+        <button type="submit" class="btn btn-secondary mb-3">Send Message</button>
+      </form>
+    </div>
+  </div>
+  <div *ngIf="showMessage" class="alert alert-success d-flex align-items-center" role="alert">
+    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+    <div>
+       You have successfully submitted 😍
+    </div>
+  </div>
+</section>

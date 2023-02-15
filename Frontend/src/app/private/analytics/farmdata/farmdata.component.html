@@ -1,0 +1,41 @@
+<section>
+  <div class="section-title">
+    <h1 class="text-center">Your Crop Health Record</h1>
+  </div>
+  <div class="charts">
+    <canvas
+      baseChart
+      [data]="barChartData"
+      [options]="barChartOptions"
+      [plugins]="barChartPlugins"
+      [legend]="barChartLegend"
+      [type]="'bar'"
+    >
+    </canvas>
+  </div>
+  <div class="section-title mt-3 mb-4">
+    <h1 class="text-center">Your Field Area Weather</h1>
+  </div>
+    <div class="container">
+       <div class="row m-0">
+         <div *ngFor="let day of weatherDay" class="col-sm-3">
+          <div class="card text-white bg-secondary mb-2" style="width: 18rem">
+            <img src="../../../../assets/images/cloud.jpg" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h3 class="card-title">Temperature: {{day.main.temp}}(°C)</h3>
+              <h3 class="text-center">Date: {{day.dt_txt.split(" ")[0]}}</h3>
+                <div class="d-flex">
+                     <div class="ml-5">
+                       <h4 class="text-center"> Humidity : {{day.main.humidity}}</h4>
+                       <h4 class="text-center">Weather : {{day.weather[0].main}}</h4>
+                       <h4 class="text-center">Wind Speed :{{day.wind.speed}}</h4>
+                       <h4 class="text-center">Description : {{day.weather[0].description}}</h4>
+                     </div>
+                </div>
+            </div>
+          </div>
+         </div>
+       </div>
+
+    </div>
+</section>

@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+        "target": "https://farmersapi.herokuapp.com",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}

@@ -1,0 +1,21 @@
+#ol-map{ 
+    height: 300px;
+    width: 100%;
+}
+
+::ng-deep .mat-dialog-container {
+    overflow-y: hidden !important;
+}
+// .map{
+//     flex-grow: 1
+// }
+
+// .r-height{
+//   flex-grow: 1;
+// }
+.pull-right{
+    float: right;
+}
+.hand-show{
+    cursor: pointer;
+}

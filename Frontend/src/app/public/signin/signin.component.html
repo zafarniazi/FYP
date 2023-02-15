@@ -1,0 +1,107 @@
+<!-- Sing in  Form -->
+<section class="sign-in">
+  <div class="container">
+    <div *ngIf="error" class="alert alert-danger mt-5 error" role="alert">
+      <strong>An Error Occured</strong> {{ error }}
+    </div>
+    <div class="signin-content">
+      <div class="signin-image">
+        <figure>
+          <img
+            src="../../../assets/images/signin-image.jpg"
+            alt="sing up image"
+          />
+        </figure>
+        <li>
+          <a routerLink="/signup" class="signup-image-link"
+            >Create an account</a
+          >
+        </li>
+      </div>
+      <div class="signin-form">
+        <h2 class="form-title">Sign in</h2>
+        <form
+          [formGroup]="exform"
+          class="register-form"
+          id="login-form"
+          (ngSubmit)="clicksub()"
+        >
+          <div class="form-group">
+            <label for="email"
+              ><i class="zmdi zmdi-account material-icons-name"></i
+            ></label>
+            <input
+              type="text"
+              formControlName="email"
+              id="email"
+              placeholder="Enter your email"
+            />
+            <span
+              *ngIf="!exform.get('email').valid && exform.get('email').touched"
+              [ngStyle]="{ color: 'red' }"
+              >Please Enter email</span
+            >
+          </div>
+          <div class="form-group">
+            <label for="password"><i class="zmdi zmdi-lock"></i></label>
+            <input
+              type="password"
+              formControlName="password"
+              id="password"
+              placeholder="Enter Password"
+            />
+            <span
+              *ngIf="
+                !exform.get('password').valid && exform.get('password').touched
+              "
+              [ngStyle]="{ color: 'red' }"
+              >Please Enter password</span
+            >
+          </div>
+          <div class="form-group">
+            <input
+              type="checkbox"
+              name="remember-me"
+              id="remember-me"
+              class="agree-term"
+            />
+            <label for="remember-me" class="label-agree-term"
+              ><span><span></span></span>Remember me</label
+            >
+          </div>
+          <div class="form-group form-button">
+            <input
+              type="submit"
+              name="signin"
+              id="signin"
+              class="form-submit"
+              value="Log in"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <div class="h4 text-center mt-5"> Sign in To assess Your Account </div> 
+<div class="container pt-5 mb-5">
+    <div class="row justify-content-sm-center pt-5">
+        <div class="col-sm-6 shadow round pb-3">
+          <h1 class="text-center pt-3 text-secondary">Sign in</h1>
+            <form [formGroup]="exform">
+                <div class="form-group">
+                  <label class="col-form-label">Email:</label>
+                  <input formControlName="email" type="text" class="form-control" >
+                  <small *ngIf="email.invalid && email.touched" class="text-danger">Email is Required</small>
+                </div>
+                <div class="form-group mb-5">
+                    <label class="col-form-label">Password:</label>
+                    <input formControlName="password" type="text" class="form-control" >
+                    <small *ngIf="password.invalid && password.touched" class="text-danger">Enter your password !</small>
+                  </div>
+                <button (click)="clicksub()" [disabled]="exform.invalid" type="button" class="btn btn-primary">Sign in</button>
+              </form>
+        </div>
+    </div>
+  </div> -->

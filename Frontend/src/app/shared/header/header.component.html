@@ -1,0 +1,109 @@
+<header class="header-area header-sticky">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nav class="main-nav">
+          <!--fixed-top-->
+          <!-- ***** Logo Start ***** -->
+          <a [routerLink]="['']" class="logo">
+            <img
+              src="../../../assets/images/farmer-remove-min.png"
+              alt="logo"
+            />
+          </a>
+          <!-- ***** Logo End ***** -->
+          <!-- ***** Menu Start ***** -->
+          <ul
+            class="nav new-bg"
+            [ngStyle]="{ position: 'absolute', right: '150px' }"
+          >
+            <li class="scroll-to-section">
+              <a [routerLink]="['']" class="menu-item">Home</a>
+            </li>
+            <li *ngIf="!token" class="scroll-to-section">
+              <a href="#about" class="menu-item">About</a>
+            </li>
+            <li *ngIf="!token" class="scroll-to-section">
+              <a href="#testimonials" class="menu-item">Testimonials</a>
+            </li>
+            <li class="fListItem"><a [routerLink]="['/blogs']">Blog posts</a></li>
+            <li *ngIf="token" class="submenu">
+              <a [routerLink]="'private/annotation'" [ngStyle]="{ display: 'flex', align: 'center' }"
+                >Select Area</a
+              >
+            </li>
+            <li *ngIf="token" class="scroll-to-section">
+              <a [routerLink]="'private/dashboard/analytics'" class="menu-item"
+                >Farm Analytics</a
+              >
+            </li>
+            <li *ngIf="!token" class="scroll-to-section">
+              <a href="#contact-us" class="menu-item">Contact Us</a>
+            </li>
+            <li *ngIf="!token" class="scroll-to-section">
+              <a [routerLink]="'/signin'" class="menu-item">Sign in</a>
+            </li>
+            <li *ngIf="!token" class="scroll-to-section">
+              <a [routerLink]="'/signup'" class="menu-item">Sign up</a>
+            </li>
+            <li
+              data-aos="flip-right"
+              *ngIf="token"
+              style="display: flex; align-items: center"
+            >
+              <span style="color: green; font-weight: 400"
+                >Hi, {{ token ? username : "" }}</span
+              >
+            </li>
+            <li
+              *ngIf="token"
+              class="scroll-to-section submenu"
+              style="display: flex; align-items: center"
+            >
+              <img
+                src="https://images.pexels.com/photos/941693/pexels-photo-941693.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                alt=""
+                className="avatar"
+                style="width: 30px; height: 30px; border-radius: 50%"
+              />
+              <ul>
+                <li>
+                  <a class="menu-item" (click)="profileSetting()">Change Password</a>
+                  <a class="menu-item" (click)="logout()">Logout</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <a class="menu-trigger" (click)="onNavMenu()">
+            <span>Menu</span>
+          </a>
+          <!-- ***** Menu End ***** -->
+        </nav>
+        <ul  *ngIf="handleMneu" class="mobile-nav">
+          <li><a [routerLink]="['']" class="menu-item">Home</a></li>
+          <li><a href="#about" class="menu-item">About</a></li>
+          <li><a href="#testimonials" class="menu-item">Testimonials</a></li>  
+          <li><a [routerLink]="['/blogs']">Blog posts</a></li>
+          <li *ngIf="token">
+            <a [routerLink]="'private/annotation'">Select Area</a
+            >
+          </li>
+          <li *ngIf="token" class="scroll-to-section">
+            <a [routerLink]="'private/dashboard/analytics'" class="menu-item"
+              >Farm Analytics</a
+            >
+          </li>
+          <li *ngIf="!token" class="scroll-to-section">
+            <a href="#contact-us" class="menu-item">Contact Us</a>
+          </li>
+          <li *ngIf="!token" class="scroll-to-section">
+            <a [routerLink]="'/signin'" class="menu-item">Sign in</a>
+          </li>
+          <li *ngIf="!token" class="scroll-to-section">
+            <a [routerLink]="'/signup'" class="menu-item">Sign up</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>

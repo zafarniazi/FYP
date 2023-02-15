@@ -1,0 +1,14 @@
+<div class="d-flex flex-column align-items-center justify-content-center">
+    <h1 [ngStyle]="{ color : 'green' }">Your Filed Data</h1>
+    <ul>
+        <li>
+          <h3>Temperature : </h3><h4 [ngStyle]="{ color : 'green' }">&#10003; {{ formdata.temp }}°C°F</h4> 
+        </li>
+        <li>
+         <h3>Clouds : </h3><h4 [ngStyle]="{ color : 'green' }">&#10003;  {{formdata.cloud}} %</h4>  
+        </li>
+        <li>
+         <h3>Predicted Value : </h3> <h4 [ngStyle]="{ color : 'green' }"> &#10003; {{ value }} (Tons)</h4>
+        </li>
+      </ul>
+</div>

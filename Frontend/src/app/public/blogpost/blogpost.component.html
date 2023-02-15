@@ -1,0 +1,19 @@
+<section class="blogs">
+    <h1 class="mb-6">Welcome To our daily blog post </h1>
+    <div class="blog-cards">
+        <div *ngIf="posts.length > 0" class="posts">
+            <mat-card  *ngFor="let post of posts" class="example-card">
+                <mat-card-title>{{ post.title }}</mat-card-title>
+                <mat-card-subtitle>{{ post.user.name }}</mat-card-subtitle>
+                <mat-card-content>
+                  <p (click)="onClicked()">{{post.content.slice(0,70)+ " read more..."}}</p>
+                </mat-card-content>
+                <mat-card-actions>
+                  <button mat-button>LIKE</button>
+                  <button mat-button [ngStyle]="{'display':'inline' , 'float':'right'}"><strong>created_at : </strong>{{ post.created_at |  date: 'dd/MM/yyyy' }}</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+    
+</section>

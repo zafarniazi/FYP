@@ -1,0 +1,19 @@
+<app-loadingspiner></app-loadingspiner>
+<app-header></app-header>
+<div class="wrapper">
+  <main class="main-content">
+   <router-outlet></router-outlet>
+  </main>
+</div>
+<div *ngIf="mobile" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p>We are Building mobile view Apps </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeMidal()" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

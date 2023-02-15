@@ -1,0 +1,58 @@
+table {
+    width: 100%;
+  }
+
+  td, th {
+    width: 25%;
+  }
+  #map{ 
+    height: 100vh;
+    width: 100%;
+  }
+
+
+  .mat-form-field {
+    font-size: 20px;
+    margin-left: 20px;
+    width: 90%;
+  }
+
+  /* Transparent overlay */
+  .loading-indicator {
+    position: fixed;
+    z-index: 999;
+    height: 19em;
+    width: 40em;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+
+  .p-20{
+    padding: 20px;
+  }
+
+  .prediction{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  .pred-form{
+    overflow: hidden;
+    h1 {
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+    }
+    margin-left: 20px;
+    .mat-form-field{
+      font-size : 15px !important
+    }
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+  }

@@ -1,0 +1,64 @@
+
+  <div mat-dialog-title>
+    <div class="row">
+      <div class="col-md-10">
+        <h2>Fill Farm Details</h2>
+      </div>
+      <div class="col-md-2">
+        <a (click)="close()" class="pull-right hand-show">
+          <mat-icon>close</mat-icon>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div mat-dialog-content>
+    <div class="row">
+      <div class="col-md-6">
+        <form [formGroup]="exform">
+          <div class="row">
+            <div class="col-md-12">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Field Name</mat-label>
+                <input
+                  matInput
+                  placeholder="Enter Field Name"
+                  formControlName="name"
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-12">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Time From</mat-label>
+                <input matInput [matDatepicker]="picker" [max]="today" formControlName="time_from"/>
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="picker"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+            <div class="col-md-12">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>Time To</mat-label>
+                <input matInput [matDatepicker]="picker1" [max]="today" formControlName="time_to"/>
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle
+                  matSuffix
+                  [for]="picker1"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <div id="ol-map" class="ol-map" tabindex="0"></div>
+      </div>
+    </div>
+  </div>
+  <mat-dialog-actions align="end">
+    <button mat-raised-button type="submit"color="primary" (click)="onSubmit()">Save</button>
+  </mat-dialog-actions>
+

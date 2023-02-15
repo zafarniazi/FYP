@@ -1,0 +1,12 @@
+.mat-toolbar {
+    background-color: white !important;
+    color:  #212529;
+    font-weight: 400;
+    text-transform: uppercase;
+
+}
+.mat-toolbar-multiple-rows { 
+    flex-direction: row !important;
+    align-items: center !important;
+}
+
